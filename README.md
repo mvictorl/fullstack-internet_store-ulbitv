@@ -1,4 +1,7 @@
-## Example of Fulstack Internet store App (`React`, `Node.js` etc.) by [Ulbi TV Youtube video](https://youtu.be/H2GCkRF9eko)
+## Example of Fullstack Internet store App (`React`, `Node.js` etc.) by [Ulbi TV Youtube video](https://youtu.be/H2GCkRF9eko)
+___
+
+Install local database application [PostgreSQL](https://www.enterprisedb.com/downloads/postgres-postgresql-downloads)
 
 Create `client` and `server` folders for client and server code
 
@@ -57,7 +60,7 @@ Create `client` and `server` folders for client and server code
         console.log(`Server started on port ${PORT}`)
       })
       ```
-3. Create `db.js` file connecting to database (install application [PostgreSQL](https://www.enterprisedb.com/downloads/postgres-postgresql-downloads) independently)
+3. Create `db.js` file connecting to database
 4. Add into `.env` file environment variables for database connection:
     ```
     DB_HOST=localhost
@@ -102,4 +105,42 @@ Create `client` and `server` folders for client and server code
 
     startDbConnection()
     ```
-7. 23:05
+7. Create ORM models (database table) into `models/models.js`
+1. Import models into `index.js` (PostgreSQL create tables at App starts):
+    ```javascript
+    const models = require('./models/models')
+    ```
+1. Add CORS and JSON middleware into `index.js`:
+    ```javascript
+    const cors = require('cors')
+    . . . 
+    app.use(cors())
+    app.use(express.json())
+    ```
+1. For testing purposes create into `index.js` first endpoint:
+    ```javascript
+    app.get('/', (request, response) => {
+      response.status(200).json({message: 'Backend works!..'})
+    })
+    ```
+   _Test and delete it..._
+1. Create `routes` folder with separate routers JS files and `index.js` for combine its.
+   Import `routes/index.js` into `index.js` and add middleware:
+    ```javascript
+    const router = require('./routes')
+    . . .
+    app.use('/api', router)
+    ```
+1. Create `controllers` folder for routers controllers (functions which run at each router).
+   Import each controller into the corresponding router file
+1. Create custom handling error middleware:
+    1. create custom `ApiError` class extends `Error` into `error/ApiError.js`
+    1. use `ApiError` class into `middleware/ErrorHandlerMiddleware.js`
+    1. import and use it middleware into main `index.js`
+   > Warning!
+   > 
+   > Important to register error handler middleware the last!
+   >
+   > (without using `next()` inside)
+1. 
+1. 40:16
