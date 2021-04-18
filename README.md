@@ -142,5 +142,20 @@ Create `client` and `server` folders for client and server code
    > Important to register error handler middleware the last!
    >
    > (without using `next()` inside)
-1. 
-1. 40:16
+1. For upload device images install `express-fileupload` npm package.
+   Import it into main `index.js` and use as `express` middleware:
+    ```javascript
+    const fileUpload = require('express-fileupload')
+    . . .
+    app.use(fileUpload({}))
+    ```
+1. For generate unique image file name install `uuid` npm package
+1. Create `static` folder for uploaded images.
+   Add `express` middleware into main `index.js` for resolve static files (images):
+    ```javascript
+    const path = require('path')
+    . . .
+    app.use(express.static(path.resolve(__dirname, 'static')))
+    ```
+1. User controller use JWT
+1. 54:33
