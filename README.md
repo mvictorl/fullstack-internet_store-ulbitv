@@ -1,11 +1,11 @@
-## Example of Fullstack Internet store App (`React`, `Node.js` etc.) by [Ulbi TV Youtube video](https://youtu.be/H2GCkRF9eko)
+## Example of Fullstack Internet store App (_React.js_, _Node.js_ etc.) by [*Ulbi TV* Youtube video](https://youtu.be/H2GCkRF9eko)
 ___
 
 Install local database application [PostgreSQL](https://www.enterprisedb.com/downloads/postgres-postgresql-downloads)
 
 Create `client` and `server` folders for client and server code
 
-### Begin server part of App
+## *Server* part of App
 1. Create `index.js` into `server` folder
 2. Init `server` folder (created `package.json` file):
    ```
@@ -142,15 +142,15 @@ Create `client` and `server` folders for client and server code
    > Important to register error handler middleware the last!
    >
    > (without using `next()` inside)
-1. For upload device images install `express-fileupload` npm package.
+1. For upload device images install `express-fileupload` npm package. 
    Import it into main `index.js` and use as `express` middleware:
     ```javascript
     const fileUpload = require('express-fileupload')
     . . .
     app.use(fileUpload({}))
     ```
-1. For generate unique image file name install `uuid` npm package
-1. Create `static` folder for uploaded images.
+   For generate unique image file name install `uuid` npm package 
+   Create `static` folder for uploaded images. 
    Add `express` middleware into main `index.js` for resolve static files (images):
     ```javascript
     const path = require('path')
@@ -162,5 +162,16 @@ Create `client` and `server` folders for client and server code
     ```
     # npm i jsonwebtoken bcrypt
     ```
-   Server secret key for second parameter of `jwt.sign()` function put into `.env` file.
+   Put Server secret key for second parameter of `jwt.sign()` function into `.env` file.
+   For implementation `GET /auth` route for `user` create `authMiddleware.js` and add it as second parameter:
+    ```javascript
+    const auth = require('../middleware/authMiddleware')
+    . . .
+    router.get('/auth', auth, userController.check)
+    ```
+1. Add checking roles.
+   Create `checkRoleMiddleware.js` and add it as second parameter in `POST /` of `type` route.
+1. TODO: add checking role for other entities, add delete functions and so on...
+___
+## *Client* part of App
 1. 1:02:14
