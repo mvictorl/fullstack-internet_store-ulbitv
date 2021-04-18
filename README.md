@@ -16,12 +16,17 @@ Create `client` and `server` folders for client and server code
    ```
    # npm i express pg pg-hstore sequelize cors dotenv
    ```
-   express - Node.js framework for make web-server;
-   pg - PostgreSQL client for Node.js;
-   pg-hstore - serializing and deserializing JSON data to hstore format for PostgreSQL;
-   sequelize - promise-based Node.js ORM tool for Postgres, MySQL, MariaDB, SQLite and Microsoft SQL Server;
-   cors - express middleware to enable CORS (Cross-Origin Resource Sharing);
-   dotenv - zero-dependency module for loading environment variables from a `.env` file into `process.env`
+   **express** - Node.js framework for make web-server;
+   
+   **pg** - PostgreSQL client for Node.js;
+   **pg-hstore** - serializing and deserializing JSON data to hstore format for PostgreSQL;
+   
+   **sequelize** - promise-based Node.js ORM tool for Postgres, MySQL, MariaDB, SQLite and Microsoft SQL Server;
+   
+   **cors** - express middleware to enable CORS (Cross-Origin Resource Sharing);
+   
+   **dotenv** - zero-dependency module for loading environment variables from a `.env` file into `process.env`
+   
 1. Install packages for development:
    ```
    # npm i -D nodemon
@@ -174,4 +179,43 @@ Create `client` and `server` folders for client and server code
 1. TODO: add checking role for other entities, add delete functions and so on...
 ___
 ## *Client* part of App
-1. 1:02:14
+1. Into `client` folder create React application:
+    ```
+    # cd client
+    # npx create-react-app .
+    ```
+   Delete all unnecessary.
+1. Install necessary packages:
+   ```
+   # npm i axios react-router-dom mobx mobx-react-lite
+   ```
+   **axios** - Promise based HTTP client;
+   
+   **react-router-dom** - DOM bindings for React Router;
+   
+   **mobx** - state management;
+   
+   **mobx-react-lite** -  lighter version of mobx-react which supports React functional components only.
+   
+1. Install Bootstrap for React:
+    ```
+    # npm i react-bootstrap bootstrap
+    ```
+   Import bootstrap css into `index.js` file
+1. Create into `client/src` the following folders: `store`, `pages` and `components`
+1. Into `pages` folder create the following files with React component: `Admin.js`, `Auth.js`, `Basket.js`, `Device.js` and `Shop.js`
+1. Create into `components` folder `AppRouter.js` file.
+   
+   Import `Switch`, `Route` & `Redirect` from `react-router-dom`:
+    ```javascript
+    import { Switch, Route, Redirect } from 'react-router-dom'
+    ```
+   Into `App.js` wrap `<AppRouter />` component by `<BrowserRouter>` from `react-router-dom`.
+1. Create `src/routes.js` file with routes definition.
+   
+   `authRoutes` - array of routes which require authorization and
+   
+   `publicRoutes` - array of public routes.
+   
+    Put all constants into `utils/consts.js` file
+1. Finalize `AppRouter.js` component
