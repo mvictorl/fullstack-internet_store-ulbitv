@@ -157,5 +157,10 @@ Create `client` and `server` folders for client and server code
     . . .
     app.use(express.static(path.resolve(__dirname, 'static')))
     ```
-1. User controller use JWT
-1. 54:33
+1. User controller use JWT for authorization/authentication/
+   Install the necessary npm packages:
+    ```
+    # npm i jsonwebtoken bcrypt
+    ```
+   Server secret key for second parameter of `jwt.sign()` function put into `.env` file.
+1. 1:02:14
