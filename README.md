@@ -248,6 +248,6 @@ ___
    2. фdd `<NavBar />` into `App.js`;
    3. replace bootstrap `<Nav.Link>` with `<Button>`;
    4. wrap `<NavBar>` component in the `observer()` function from the `mobx-react-lite` pakage.
-2. Create `<Auth>` component representing registration and autorization page
+2. Create `<Auth>` component representing registration and authorization page
 3. Create `<Shop>` component representing home/main page
-4. 
+    1. Create `<TypeBar>` component with `<ListGroup>` from 'react-bootstrap'
