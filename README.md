@@ -219,3 +219,33 @@ ___
    
     Put all constants into `utils/consts.js` file
 1. Finalize `AppRouter.js` component
+1. Create `store/UserStore.js` file for `User` store definition
+1. Into main `index.js` import `createContext` function from `react` and wrap `<App>` component in the `<Context.Provider>` component.
+
+   Add to value of `<Context.Provider>` object instance of `UserStore` class
+   ```javascript
+   <Context.Provider
+      value={{
+         user: new UserStore()
+      }}
+   >
+      <App />
+   </Context.Provider>
+   ```
+2. After that `isAuth` variable value get in the `AppRoute` component from the `user` store of `Context`:
+   ```javascript
+   const { user } = useContext(Context)
+
+   return (
+      <Switch>
+         {user.isAuth &&
+   . . .
+   ```
+1. Create `store/DeviceStore.js` file for `Device` store definition.
+   Import `DeviceStore` into main `index.js` and add `device` store into `<Context.Provider>`
+1. Create layout of App's client part
+   1. сreate `<NavBar>` component based on example of `Navbar` react-bootstrap component;
+   2. фdd `<NavBar />` into `App.js`;
+   3. replace bootstrap `<Nav.Link>` with `<Button>`;
+   4. wrap `<NavBar>` component in the `observer()` function from the `mobx-react-lite` pakage.
+2. Create `<Auth>` component serving registration and autorization page
