@@ -248,13 +248,25 @@ ___
    2. фdd `<NavBar />` into `App.js`;
    3. replace bootstrap `<Nav.Link>` with `<Button>`;
    4. wrap `<NavBar>` component in the `observer()` function from the `mobx-react-lite` pakage.
-2. Create `<Auth>` component representing registration and authorization page
-3. Create `<Shop>` component representing home/main page
+1. Create `<Auth>` component representing registration and authorization page
+1. Create `<Shop>` component representing home/main page
     1. Create `<TypeBar>` component with `<ListGroup>` from 'react-bootstrap';
     2. Create `<BrandBar>` component
     3. Create `<DeviceList>` component by first creating `<DeviceItem>`
  1. Create `<Device>` component representing selected device page
- 2. Create `<Admin>` component representing administrative page.
+ 1. Create `<Admin>` component representing administrative page.
     1. Create `components/modals` for modal components based on `Modal` 'react-bootstrap';
-    2. 
+    1. Modal `<CreateDevice>` use `<Form>` with `<Dropdown>` from 'react-bootstrap';
+    1. Add to modal `<CreateDevice>` dynamical characteristic list.
+___
+## Connecting *Client* and *Server* parts of App
+1. Create `.env` file for required environment variables
 
+   Environment variables into `.env` file must be starts with `REACT_APP_`
+
+   Maybe needed restart `npm start` script
+
+1. Create `http` folder with `index.js` file into `client/src` folder
+1. Create into `http` folder `userAPI.js` file for user registration, authorization and token validation
+
+2:07:00
