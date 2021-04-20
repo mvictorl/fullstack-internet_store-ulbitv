@@ -250,4 +250,11 @@ ___
    4. wrap `<NavBar>` component in the `observer()` function from the `mobx-react-lite` pakage.
 2. Create `<Auth>` component representing registration and authorization page
 3. Create `<Shop>` component representing home/main page
-    1. Create `<TypeBar>` component with `<ListGroup>` from 'react-bootstrap'
+    1. Create `<TypeBar>` component with `<ListGroup>` from 'react-bootstrap';
+    2. Create `<BrandBar>` component
+    3. Create `<DeviceList>` component by first creating `<DeviceItem>`
+ 1. Create `<Device>` component representing selected device page
+ 2. Create `<Admin>` component representing administrative page.
+    1. Create `components/modals` for modal components based on `Modal` 'react-bootstrap';
+    2. 
+
