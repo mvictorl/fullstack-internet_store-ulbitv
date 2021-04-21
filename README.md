@@ -256,5 +256,6 @@ ___
  1. Create `<Device>` component representing selected device page
  2. Create `<Admin>` component representing administrative page.
     1. Create `components/modals` for modal components based on `Modal` 'react-bootstrap';
-    2. 
+
+1:57:00
 
