@@ -12,6 +12,7 @@ const Auth = () => {
 	const location = useLocation()
 	const [email, setEmail] = useState('')
 	const [password, setPassword] = useState('')
+	const [isAdmin, setIsAdmin] = useState(true)
 	const isLogin = location.pathname === LOGIN_ROUTE
 
 	const submitAuthReg = async () => {
@@ -20,11 +21,10 @@ const Auth = () => {
 			if (isLogin) {
 				data = await login(email, password)
 			} else {
-				data = await registration(email, password)
+				const role = isAdmin ? 'ADMIN' : 'USER'
+				data = await registration(email, password, role)
 			}
 			user.setUser(data)
-			console.log(data)
-			console.log(user)
 			user.setIsAuth(true)
 			history.push(SHOP_ROUTE)
 			// let data = isLogin
@@ -62,7 +62,20 @@ const Auth = () => {
 						onChange={e => setPassword(e.target.value)}
 					/>
 
-					<Row className="d-flex justify-content-between mt-3 pr-3 pl-3">
+					<Row className="d-flex flex-row-reverse pt-3 pr-3 pl-3 justify-content-between">
+						<Button variant={'outline-success'} onClick={submitAuthReg}>
+							{isLogin ? 'Enter' : 'Register'}
+						</Button>
+						{isLogin ? null : (
+							<Form.Switch
+								id="custom-switch"
+								label="Admin?"
+								checked={isAdmin}
+								onChange={() => setIsAdmin(!isAdmin)}
+							/>
+						)}
+					</Row>
+					<Row className="pr-3 pl-3">
 						{isLogin ? (
 							<div>
 								Don't have an account yet?
@@ -74,9 +87,6 @@ const Auth = () => {
 								<NavLink to={LOGIN_ROUTE}> Login here...</NavLink>
 							</div>
 						)}
-						<Button variant={'outline-success'} onClick={submitAuthReg}>
-							{isLogin ? 'Enter' : 'Register'}
-						</Button>
 					</Row>
 				</Form>
 			</Card>

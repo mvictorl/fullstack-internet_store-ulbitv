@@ -272,5 +272,10 @@ ___
    ```
    # npm i jwt-decode
    ```
+1. After authorization/registration need to keep token in the `local storage` of the browser. Into `userAPI.js`:
+   ```javascript
+   localStorage.setItem('token', data.token)
+   ```
+1. Create into `http` folder `deviceAPI.js` file for getting Devices, Types and Brands
 
 2:07:00
