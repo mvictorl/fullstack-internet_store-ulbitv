@@ -15,10 +15,9 @@ module.exports = function (req, res, next) {
       id: 2,
       email: 'user@yandex.ru',
       role: 'ADMIN',
-      iat: 1619093859,        
+      iat: 1619093859,
       exp: 1619180259
     } */
-		console.log(req)
 		next()
 	} catch (e) {
 		res.status(401).json({ message: 'Пользователь не авторизован' })
