@@ -16,23 +16,23 @@ app.use(express.json())
 app.use(express.static(path.resolve(__dirname, 'static')))
 app.use(fileUpload({}))
 app.use('/api', router)
-// Error handler, last middleware!
+// Error handler, must be last of the middlewares!
 app.use(errorHandler)
 
 app.get('/', (request, response) => {
-  response.status(200).json({message: 'Backend works!..'})
+	response.status(200).json({ message: 'Backend works!..' })
 })
 
 const startDbConnection = async () => {
-  try {
-    await sequelize.authenticate()
-    await sequelize.sync()
-    app.listen(PORT, () => {
-      console.log(`Server started on port ${ PORT }`)
-    })
-  } catch (e) {
-    console.error(e)
-  }
+	try {
+		await sequelize.authenticate() // TODO: sync() into .then() of authenticate()
+		await sequelize.sync()
+		app.listen(PORT, () => {
+			console.log(`Server started on port ${PORT}`)
+		})
+	} catch (e) {
+		console.error(e)
+	}
 }
 
 startDbConnection()
