@@ -11,15 +11,17 @@ function App() {
 	const { user } = useContext(Context)
 	const [loading, setLoading] = useState(false)
 
-	// useEffect(() => {
-	// 	check()
-	// 		.then(data => {
-	// 			user.setUser(data)
-	// 			user.setIsAuth(true)
-	// 		})
-	// 		.finally(() => setLoading(false))
-	// 	// eslint-disable-next-line react-hooks/exhaustive-deps
-	// }, [])
+	useEffect(() => {
+    console.log('App.js useEffect()...')
+		check()
+			.then(data => {
+        console.log(data)
+				user.setUser(true)
+				user.setIsAuth(true)
+			})
+			.finally(() => setLoading(false))
+		// eslint-disable-next-line react-hooks/exhaustive-deps
+	}, [])
 
 	if (loading) {
 		return (

@@ -10,10 +10,10 @@ import { fetchTypes } from '../http/deviceAPI'
 const Shop = () => {
 	const { device } = useContext(Context)
 
-	// useEffect(() => {
-	// 	fetchTypes().then(data => device.setTypes(data))
-	// 	// eslint-disable-next-line react-hooks/exhaustive-deps
-	// }, [])
+	useEffect(() => {
+		fetchTypes().then(data => device.setTypes(data))
+		// eslint-disable-next-line react-hooks/exhaustive-deps
+	}, [])
 
 	return (
 		<Container>
